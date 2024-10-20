@@ -9,8 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "devextreme": "23.2.5",
-    "devextreme-react": "23.2.5",
+    "devextreme": "24.1.6",
+    "devextreme-react": "24.1.6",
     "next": "14.0.3",
     "next-auth": "^4.24.7",
     "react": "^18",

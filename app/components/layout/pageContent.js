@@ -67,7 +67,7 @@ export default function PageContent({ children }) {
         return;
       }
       router.push(itemData.path);
-      scrollViewRef.current.instance.scrollTo(0);
+      scrollViewRef.current.instance().scrollTo(0);
       setTimeout(() => {
         setMenuStatus(MenuStatus.Closed);
       });

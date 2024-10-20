@@ -51,7 +51,7 @@ export default function SideNavigationMenu(props) {
   );
 
   useEffect(() => {
-    const treeView = treeViewRef.current && treeViewRef.current.instance;
+    const treeView = treeViewRef.current && treeViewRef.current.instance();
     if (!treeView) {
       return;
     }

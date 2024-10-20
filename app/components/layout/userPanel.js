@@ -10,7 +10,7 @@ export default function UserPanel({ toolbarRef }) {
 
   const menuItems = useMemo(() => {
     function navigateToProfile() {
-      toolbarRef.current.instance.repaint();
+      toolbarRef.current.instance().repaint();
       router.push("/profile");
     }
     return [
