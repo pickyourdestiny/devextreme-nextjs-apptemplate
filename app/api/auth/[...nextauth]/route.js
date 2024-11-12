@@ -1,5 +1,6 @@
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
+import signinLogo from "../../../../public/signin.png";
 
 //see NextAuth documentation for more information at https://next-auth.js.org/getting-started/example
 
@@ -18,7 +19,10 @@ const authOptions = {
     }),
   ],
   secret: process.env.NEXTAUTH_SECRET,
-  theme: "dark",
+  theme: {
+    colorScheme: "dark",
+    logo: signinLogo.src,
+  },
 };
 const handler = NextAuth(authOptions);
 export { handler as GET, handler as POST };

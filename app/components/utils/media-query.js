@@ -3,45 +3,21 @@
 import { useState, useCallback, useEffect } from "react";
 
 export const useScreenSize = () => {
-  const [screenSize, setScreenSize] = useState({
-    isXSmall: false,
-    isSmall: false,
-    isMedium: false,
-  });
+  const [screenSize, setScreenSize] = useState({ ...screenSizes });
 
   const updateTarget = useCallback((e) => {
     const { media, matches } = e;
     if (media === "(max-width: 599px)" && matches) {
-      setScreenSize({
-        isXSmall: true,
-        isSmall: false,
-        isMedium: false,
-        isLarge: false,
-      });
+      setScreenSize({ ...screenSizes, isXSmall: true });
     }
     if (media === "(min-width: 600px) and (max-width: 959.99px)" && matches) {
-      setScreenSize({
-        isXSmall: false,
-        isSmall: true,
-        isMedium: false,
-        isLarge: false,
-      });
+      setScreenSize({ ...screenSizes, isSmall: true });
     }
     if (media === "(min-width: 960px) and (max-width: 1279.99px)" && matches) {
-      setScreenSize({
-        isXSmall: false,
-        isSmall: false,
-        isMedium: true,
-        isLarge: false,
-      });
+      setScreenSize({ ...screenSizes, isMedium: true });
     }
     if (media === "(min-width: 1280px)" && matches) {
-      setScreenSize({
-        isXSmall: false,
-        isSmall: false,
-        isMedium: false,
-        isLarge: true,
-      });
+      setScreenSize({ ...screenSizes, isLarge: true });
     }
   }, []);
 
@@ -100,4 +76,11 @@ export const useScreenSizeClass = () => {
   }
 
   return "screen-x-small";
+};
+
+const screenSizes = {
+  isXSmall: false,
+  isSmall: false,
+  isMedium: false,
+  isLarge: false,
 };
